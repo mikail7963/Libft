@@ -83,6 +83,10 @@ static char	**ft_strarraycpy(char **strarray, const char *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strarray = (char **)malloc(sizeof(char *) * (ft_strcounter(s, c) + 1));
-	return (!strarray ? NULL :  ft_strarraycpy(strarray, s, c));
+	char	**strarray;
+
+	strarray = (char **)malloc(sizeof(char *) * (ft_strcounter(s, c) + 1));
+	if (!strarray)
+		return (NULL);
+	return (ft_strarraycpy(strarray, s, c));
 }
